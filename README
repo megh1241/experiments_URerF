@@ -1,0 +1,2 @@
+Running scripts named "run_exp_XXX.R" will generate the Rdata files. To plot these files, run the corresponding script in plotting/scripts.
+The plotting scripts are a little messy and might need slight changes (for eg the filepath of the .Rdata file).

@@ -1,0 +1,16 @@
+source("hw_sim_euc_10e4noise.R")
+source("precision_recall.R")
+library(stats)
+library(MASS)
+library(Matrix)
+library(scatterplot3d)
+library(rerf)
+library(vegan)
+library(umap)
+library(pracma)
+
+
+noise_experiments_varying_dim(experiment = "rotation", data="linear")
+noise_experiments_varying_dim(experiment = "normalization", data="helix")
+noise_experiments_varying_dim(experiment = "normalization", data="mog")
+noise_experiments_varying_dim(experiment = "rotation", data="sphere")
