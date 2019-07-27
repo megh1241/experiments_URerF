@@ -1,2 +1,23 @@
 Running scripts named "run_exp_XXX.R" will generate the Rdata files. To plot these files, run the corresponding script in plotting/scripts.
-The plotting scripts are a little messy and might need slight changes (for eg the filepath of the .Rdata file).
+The plotting scripts are a little messy and might need slight changes (for eg the filepath of the .Rdata file)
+
+Figure in paper: Instructions to run, plotting script
+
+Figure 2: run_exp_vary_split_criteria.R calls vary_bicvstmt.R, ggplot_bic_rer.R
+
+Figure 3:
+    Top: run_exp_vary_min_parent.R, ggplot_minparent2.R 
+    Bottom: run_exp_vary_mtry.R, ggplot_mtry.R
+
+Figure 4: 
+    Top: run_exp_10e4_dim_noise.R, hw_ggplot_fig4_logscale.R
+    Bottom: run_exp_10_dim_noise.R hw_ggplot_fig4.R
+
+Instructions to run the run_exp_XXX.R in figure 4:
+
+
+Figure 5:
+    Left: I ran Youngser's script to generate this plot. Follow this link (http://www.cis.jhu.edu/~parky/MBstructure/demo/sec4.html) for more info/script
+    Right: run_exp_drosophila.R, ggplot_dros.R 
+
+Supplemental Figures (D)
