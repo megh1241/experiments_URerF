@@ -13,11 +13,13 @@ Figure 4:
     Top: run_exp_10e4_dim_noise.R, hw_ggplot_fig4_logscale.R
     Bottom: run_exp_10_dim_noise.R hw_ggplot_fig4.R
 
-Instructions to run the run_exp_XXX.R in figure 4:
+    Instructions to run the run_exp_XXX.R in figure 4:
+    Run it three times, each time uncommenting one of the source("xxx") lines (instructions given in the run_exp_XXX.R). One of the source files generates euc distance prec recall,
+     the second generates flann pre recall and the third generates the remaining (URerF, adele RF, UMAP, isomap)
 
+    run the hw_ggplot_fig4 scripts to generate the plots
 
 Figure 5:
     Left: I ran Youngser's script to generate this plot. Follow this link (http://www.cis.jhu.edu/~parky/MBstructure/demo/sec4.html) for more info/script
     Right: run_exp_drosophila.R, ggplot_dros.R 
 
-Supplemental Figures (D)

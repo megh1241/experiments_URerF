@@ -1,4 +1,15 @@
-source("hw_sim_euc.R")
+#uncomment for euclidean distancec Prec and Rec
+#source("hw_sim_euc_10_dim_noise.R")
+
+#uncomment for flann Prec and Rec
+#source("hw_flann_10_dim_noise.R")
+
+
+#uncomment for URerF, RF, UMAP ISOMAP Prec and Rec
+#source("hw_sim_noise.R")
+
+
+
 source("precision_recall.R")
 library(stats)
 library(MASS)
