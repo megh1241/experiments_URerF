@@ -23,3 +23,47 @@ Figure 5:
     Left: I ran Youngser's script to generate this plot. Follow this link (http://www.cis.jhu.edu/~parky/MBstructure/demo/sec4.html) for more info/script
     Right: run_exp_drosophila.R, ggplot_dros.R 
 
+
+General Notes: Installing dependencies
+
+How to install and run URerF
+
+
+R: First install generall dependencies
+
+sudo apt-get install libgsl-dev
+Rcpp, mclust, dummies, gsl, Rcpp-gsl and a bunch of other things  mentioned when installing
+Git clone SPORF (https://github.com/neurodata/SPORF)
+Rscript -e "install.packages('R-Project/', type = 'source', repos = NULL)"
+
+
+
+To run script “run_exp.R” (vary noise dimensions for simulation datasets)
+
+install.packages("scatterplot3d")
+install.packages("vegan")
+install.packages("reshape")
+sudo apt-get install libssl-dev
+install.packages("umap")
+install.packages("geosphere")
+sudo apt-get install xorg
+sudo apt-get install libx11-dev
+sudo apt-get install libglu1-mesa-dev
+sudo apt-get install libfreetype6-dev
+install.packages(“rgl”)
+install.packages("pracma")
+Rscript run_exp.R
+
+
+To run script “run_script_drosophila.R”
+
+install.packages(“randomForest)
+sudo apt-get install libcurl4-openssl-dev
+sudo apt install xml2
+sudo apt-get install libxml2-dev
+install.packages(“devtools”)
+require(“devtools”)
+To install https://github.com/youngser/mbstructure:
+devtools::install_github("youngser/mbstructure")
+Rscript run_exp_drosophila.R
+
