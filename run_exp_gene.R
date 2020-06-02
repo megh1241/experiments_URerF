@@ -26,32 +26,47 @@ data(MBconnectome)
 
 #hw_noise_data = Xhat 
 #labels = vdf$type
-#labels = as.factor(labels)
-#num_of_points = nrow(hw_noise_data)
-#at_K = seq(50, 150, by=20)
+#at_K = seq(1, 30, by=2)
 
+at_K=seq(50, 200, 50)
 filepath_X = "data/42/X/001.txt" 
 filepath_y = "data/42/Y/001.txt" 
 
+dir_X = 'data/42/X'
+dir_y = 'data/42/y'
 
-allLines <- readLines(con = filepath_X, n = -1)
-#print(allLines)
-tokenize <- strsplit(allLines, split = ' ')
-X <- sapply(tokenize, FUN = function(x) {as.double(unlist(x))} )
-
-X[is.nan(X)] =  1 
-X[!is.finite(X)] = 1
-
+files_X = list.files(path=dir_X, pattern = '.txt', full.names = TRUE)
+files_y = list.files(path=dir_y, pattern = '.txt', full.names = TRUE)
+X = matrix(nrow=0 ,ncol=43)
+for (file in files_X){
+    allLines <- readLines(con = file, n = -1)
+    tokenize <- strsplit(allLines, split = ' ')
+    temp_X <- sapply(tokenize, FUN = function(x) {as.double(unlist(x))} )
+    X = rbind(X, temp_X)
+}
+X[is.nan(X)] =  -1 
+X[!is.finite(X)] = -1
 #print(X)
+y = c()
+for (file in files_y){
+    ylines <- readLines(con = filepath_y, n = -1)
+    tokenize <- strsplit(ylines, split = ' ')
+    y_temp <- lapply(tokenize, FUN = function(x) {as.integer(x)} )
+    y_temp <- lapply(y_temp, function(x) replace(x, !is.finite(x), 0))
+    y  = c(y, y_temp)
+}
 
-ylines <- readLines(con = filepath_y, n = -1)
-tokenize <- strsplit(ylines, split = ' ')
-y <- lapply(tokenize, FUN = function(x) {as.integer(x)} )
-y <- lapply(y, function(x) replace(x, !is.finite(x), 0))
+y[is.nan(X)] =  0
+y[!is.finite(X)] = 0
+
+y=unlist(y)
 #print(y)
 hw_noise_data = X
 print(hw_noise_data)
-g_noise=Urerf(X, trees = 100, mtry=6, Progress = TRUE, LinearCombo=TRUE, splitCrit = "bicfast", normalizeData = TRUE)
+num_of_points = nrow(X)
+labels = y
+#labels = as.factor(labels)
+g_noise=Urerf(X, trees = 200, mtry=6, Progress = TRUE, LinearCombo=TRUE, splitCrit = "bicfast", normalizeData = TRUE)
 
 W_noise=g_noise$similarityMatrix
 D_rf_noise=1-W_noise
@@ -91,5 +106,4 @@ D_euc_noise_p_r_list = p_r_list(D_eucd_noise, labels, at_K, num_of_points)
 euc_prec_list_bicfast = D_euc_noise_p_r_list$precisionList
 euc_rec_list_bicfast = D_euc_noise_p_r_list$recallList
 
-save(at_K, iso_prec_list_bicfast, iso_rec_list_bicfast, umap_prec_list_bicfast, umap_rec_list_bicfast, arf_prec_list_bicfast, arf_rec_list_bicfast,urerf_prec_list_bicfast, urerf_rec_list_bicfast, euc_prec_list_bicfast, euc_rec_list_bicfast, file="drosophila_simulations.Rdata")
-'''
+save(at_K, iso_prec_list_bicfast, iso_rec_list_bicfast, umap_prec_list_bicfast, umap_rec_list_bicfast, arf_prec_list_bicfast, arf_rec_list_bicfast,urerf_prec_list_bicfast, urerf_rec_list_bicfast, euc_prec_list_bicfast, euc_rec_list_bicfast, file="gene_exp_simulations.Rdata")
