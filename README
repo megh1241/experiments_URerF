@@ -71,3 +71,7 @@ To install https://github.com/youngser/mbstructure:
 devtools::install_github("youngser/mbstructure")
 Rscript run_exp_drosophila.R
 
+To run plotting_scripts/plot_XXX:
+install the required packages
+replace XXX.Rdata with path of Rdata file
+
