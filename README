@@ -33,7 +33,11 @@ R: First install generall dependencies
 
 sudo apt-get install libgsl-dev
 Rcpp, mclust, dummies, gsl, Rcpp-gsl and a bunch of other things  mentioned when installing
-Git clone SPORF (https://github.com/neurodata/SPORF)
+
+//clone the branch "BIC_Fix_Urerf" in sporf
+git clone https://github.com/neurodata/SPORF/tree/BIC_Fix_Urerf
+
+
 Rscript -e "install.packages('R-Project/', type = 'source', repos = NULL)"
 
 
@@ -50,7 +54,7 @@ sudo apt-get install xorg
 sudo apt-get install libx11-dev
 sudo apt-get install libglu1-mesa-dev
 sudo apt-get install libfreetype6-dev
-install.packages(“rgl”)
+install.packages("rgl")
 install.packages("pracma")
 Rscript run_exp.R
 
